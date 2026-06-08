@@ -52,7 +52,7 @@ df_analise_pres = df_presentes[df_presentes['SITUACAO_TRABALHO'].isin(['Trabalha
 
 df_medias = df_analise_pres.groupby('SITUACAO_TRABALHO')[list(colunas_notas.keys())].mean().reset_index()
 df_long = pd.melt(df_medias, id_vars='SITUACAO_TRABALHO', value_vars=list(colunas_notas.keys()),
-                  var_name='Prova', value_name='Nota Média')
+                    var_name='Prova', value_name='Nota Média')
 df_long['Prova'] = df_long['Prova'].map(colunas_notas)
 
 plt.figure(figsize=(12, 6))
