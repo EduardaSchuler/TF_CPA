@@ -9,9 +9,6 @@ df = pd.read_csv(arquivo_entrada, sep=';', low_memory=False)
 
 
 # 1. TRATAMENTO DE VALORES FALTANTES
-
-# Identificar quem faltou a TODAS as provas (Absenteísmo total)
-# Se a presença for 0 em todas as 4 áreas, o candidato não compareceu ao exame
 faltou_tudo = (
     (df['TP_PRESENCA_LC'] == 0) & 
     (df['TP_PRESENCA_CH'] == 0) & 
@@ -22,7 +19,6 @@ faltou_tudo = (
 print(f"Total de inscritos analisados: {len(df)}")
 print(f"Removendo {faltou_tudo.sum()} candidatos que faltaram a todas as provas (absenteísmo total).")
 
-# Filtro: Mantemos apenas quem compareceu a pelo menos uma prova
 df_presentes = df[~faltou_tudo].copy()
 
 # Tratamento do Questionário Socioeconômico:
@@ -50,8 +46,7 @@ for prova in provas:
     df_presentes.loc[condicao_erro, col_nota] = 0.0
 
 
-# 3. TRATAMENTO DE OUTLIERS E FILTROS DE ANÁLISE
-# Redação: Se o status da redação for 4 (Anulada), a nota deve ser 0
+# 3. TRATAMENTO DE OUTLIERS E FILTROS DE ANÁLISE]
 df_presentes.loc[df_presentes['TP_STATUS_REDACAO'] == 4, 'NU_NOTA_REDACAO'] = 0.0
 
 # Identificar Idades Extremas (Outliers demográficos)
