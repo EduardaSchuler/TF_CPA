@@ -356,7 +356,7 @@ for line in axes[1].lines:
         )
 
 plt.tight_layout()
-plt.savefig("evolucao_temporal_notas_encceja.png", dpi=300)
+plt.savefig("Resultados fase 2\\evolucao_temporal_notas_encceja.png", dpi=300)
 plt.show()
 
 print("  -> Subgráfico: Taxa de participação por ano...")
