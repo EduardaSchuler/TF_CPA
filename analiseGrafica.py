@@ -101,7 +101,7 @@ for container in grafico1.containers:
     grafico1.bar_label(container, fmt='%.1f', padding=3, fontsize=10)
 
 plt.tight_layout()
-plt.savefig('impacto_trabalho_desempenho_encceja.png', dpi=300)
+plt.savefig('Resultados fase 2\\impacto_trabalho_desempenho_encceja.png', dpi=300)
 plt.show()
 
 
@@ -148,7 +148,7 @@ fig.gca().add_artist(centro_circulo)
 
 plt.title('Perfil de Trabalho dos Candidatos Ausentes\n(Abstenção Total no Encceja RS)', fontsize=14, fontweight='bold', pad=20)
 plt.tight_layout()
-plt.savefig('perfil_trabalho_abstencao_encceja.png', dpi=300)
+plt.savefig('Resultados fase 2\\perfil_trabalho_abstencao_encceja.png', dpi=300)
 plt.show()
 
 
@@ -175,7 +175,7 @@ plt.ylabel('Quantidade de Candidatos Faltantes', fontsize=12, labelpad=10)
 plt.legend(fontsize=12)
 plt.tight_layout()
 
-plt.savefig('idade_media_abstencao_encceja.png', dpi=300)
+plt.savefig('Resultados fase 2\\idade_media_abstencao_encceja.png', dpi=300)
 plt.show()
 
 
@@ -213,7 +213,7 @@ plt.legend(title='Avaliações', bbox_to_anchor=(1.05, 1), loc='upper left')
 plt.xlim(15, 65)
 plt.tight_layout()
 
-plt.savefig('desempenho_por_idade_encceja.png', dpi=300)
+plt.savefig('Resultados fase 2\\desempenho_por_idade_encceja.png', dpi=300)
 plt.show()
 
 
@@ -323,7 +323,7 @@ for container in grafico_pres.containers:
     grafico_pres.bar_label(container, fmt='%.1f%%', padding=3, fontsize=9)
 
 plt.tight_layout()
-plt.savefig('participacao_por_ano_encceja.png', dpi=300)
+plt.savefig('Resultados fase 2\\participacao_por_ano_encceja.png', dpi=300)
 plt.show()
 
 
@@ -354,9 +354,13 @@ df_renda.columns = ['Renda Familiar', 'Nota Média Geral']
 
 sns.barplot(
     ax=axes[0],
-    data=df_renda, x='Nota Média Geral', y='Renda Familiar',
-    palette='YlOrRd', orient='h'
+    data=df_renda,
+    x='Nota Média Geral',
+    y='Renda Familiar',
+    color='orange',
+    orient='h'
 )
+
 axes[0].set_title('Renda Familiar (Q05)', fontsize=12, fontweight='bold')
 axes[0].set_xlabel('Nota Média (TRI)', fontsize=10)
 axes[0].set_ylabel('')
@@ -415,7 +419,7 @@ sns.boxplot(
     data=df_escola_tipo,
     x='Q06_LABEL', y='NU_NOTA_REDACAO',
     order=ordem_escola,
-    palette='Set3'
+    color='orange',
 )
 axes[2].set_title('Tipo de Escola (Q06) x Redação', fontsize=12, fontweight='bold')
 axes[2].set_xlabel('')
@@ -423,7 +427,7 @@ axes[2].set_ylabel('Nota de Redação (0–10)', fontsize=10)
 axes[2].tick_params(axis='x', rotation=15)
 
 plt.tight_layout()
-plt.savefig('socioeconomico_desempenho_encceja.png', dpi=300)
+plt.savefig('Resultados fase 2\\socioeconomico_desempenho_encceja.png', dpi=300)
 plt.show()
 
 
