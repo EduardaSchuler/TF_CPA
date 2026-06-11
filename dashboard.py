@@ -265,12 +265,12 @@ def kpi_box(titulo, valor, cor):
     )
 
 
-def titulo_pagina(icone, titulo, subtitulo, cor=COR_AZUL):
+def titulo_pagina(titulo, subtitulo, cor=COR_AZUL):
     return html.Div(
         style={"marginBottom": "20px"},
         children=[
             html.H2(
-                f"{icone} {titulo}",
+                f"{titulo}",
                 style={
                     "margin": "0 0 4px 0",
                     "color": cor,
@@ -329,7 +329,7 @@ PAGINAS = [
 ]
 
 
-def nav_link(page_id, icone, label, ativo):
+def nav_link(page_id, label, ativo):
     bg = COR_AZUL_C if ativo else "transparent"
     fw = "700" if ativo else "400"
     return html.A(
@@ -346,7 +346,7 @@ def nav_link(page_id, icone, label, ativo):
             "fontWeight": fw,
             "letterSpacing": "0.3px",
         },
-        children=f"{icone}  {label}",
+        children=f"{label}",
     )
 
 
@@ -389,7 +389,7 @@ def sidebar(pagina_atual):
                     "marginBottom": "16px",
                 }
             ),
-            *[nav_link(pid, ic, lb, pid == pagina_atual) for pid, ic, lb in PAGINAS],
+            *[nav_link(pid, lb, pid == pagina_atual) for pid, lb in PAGINAS],
         ],
     )
 
