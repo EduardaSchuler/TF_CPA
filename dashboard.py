@@ -1119,6 +1119,6 @@ def cb_se(anos, sexos, certs):
     return fig_renda, fig_esc, fig_box
 
 
+server = app.server
 if __name__ == "__main__":
-    print("\n🚀 Acesse: http://127.0.0.1:8050")
-    app.run(debug=True)
+    app.run_server(debug=False)
